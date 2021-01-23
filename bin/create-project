@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+const { program } = require("commander");
+const path = require("path");
+const { execSync } = require("child_process");
+
+const copydir = (from, to, dry_run) => {
+  if (dry_run) {
+    console.group("Dry Run Command");
+    return console.log(`mkdir -p ${to} && cp -R ${from}/* ${to}/`);
+  }
+
+  return execSync(`mkdir -p ${to}`), execSync(`cp -R ${from}/* ${to}/`);
+};
+
+program
+  .arguments("<to=cwd()>")
+  .option(
+    "-d, --dry-run",
+    "If we should run this command in dry-run or not",
+    false
+  )
+  .parse(process.argv);
+
+const {
+  dryRun = false
+} = program.opts()
+
+const [to = process.cwd()] = program.args
+const from = path.resolve(__dirname, '..', 'project-template')
+
+copydir(from, to, dryRun)

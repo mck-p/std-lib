@@ -1,0 +1,35 @@
+# What is a good, human-readable name for this route?
+#
+name: GET Route Template
+
+# How would you describe what this route does? Why
+# did we build it?
+#
+description: |
+  This is a basic description for the GET Route Template.
+  You can you anything that is CommonMark in this description.
+
+# What other resources would you group this with?
+#
+tags:
+  - Internal
+
+
+inputs:
+  query:
+    limit:
+      type: number
+      default: 100
+
+# What feature flag do you want to "gate" this route
+# behind? 
+#
+feature_flags:
+  # What is the name of the flag?
+  #
+  - name: demo
+  # When the state of `is_on` for this
+  # flag is set to `false`, we will
+  # allow this route to be hit
+  #
+    is_on: true

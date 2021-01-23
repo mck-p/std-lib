@@ -1,0 +1,45 @@
+{
+  "name": "@mck-p/std-lib",
+  "version": "0.0.1",
+  "description": "A Standard Library of Components for Server-Side Development for the McK-P teams.",
+  "author": "Tim Roberts <tim@mck-p.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "nodemon -r module-alias/register --ext yml --ext js start.js | pino-pretty",
+    "start": "node -r module-alias/register start.js",
+    "fmt": "prettier --write \"**/*.js\""
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "pino-pretty": "^4.3.0",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "@koa/cors": "^3.1.0",
+    "@koa/router": "^10.0.0",
+    "bcrypt": "^5.0.0",
+    "bull": "^3.20.0",
+    "commander": "^7.0.0",
+    "dotenv-flow": "^3.2.0",
+    "enjoi": "^9.0.0",
+    "getenv": "^1.0.0",
+    "glob": "^7.1.6",
+    "ioredis": "^4.19.4",
+    "joi": "^17.3.0",
+    "js-yaml": "^4.0.0",
+    "jsonschema": "^1.4.0",
+    "knex": "^0.21.16",
+    "koa": "^2.13.1",
+    "koa-body": "^4.2.0",
+    "koa-compose": "^4.1.0",
+    "koa-helmet": "^6.0.0",
+    "module-alias": "^2.2.2",
+    "pg": "^8.5.1",
+    "pino": "^6.11.0",
+    "ramda": "^0.27.1"
+  },
+  "_moduleAliases": {
+    "@std-lib": "."
+  }
+}

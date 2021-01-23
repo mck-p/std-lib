@@ -1,0 +1,29 @@
+# How can we, as humans, differentiate between this
+# project and some other one? 
+#
+name: Projectsss Template
+
+# What can we say about this project to tell new people
+# about it, what it does, and why we created it?
+#
+description: |
+  This is the description for the Project Template. You
+  can put anything that is CommonMark here.
+
+# A `tag` is a way to group resources such as endpoints
+#
+tags:
+  - name: Internal
+    description: |
+      This is the description for the Internal Tag. You
+      can put anything that is CommonMark here.
+
+# Feature Flags allow us to toggle on and off certain
+# features of the application 
+#
+feature_flags:
+  - name: demo
+    description: |
+      When a route has this, it will not be available when the
+      system is started in `demo` mode.
+    is_on: true

@@ -1,0 +1,1 @@
+module.exports.is_overlord = require('./is-overlord')

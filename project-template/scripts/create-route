@@ -1,0 +1,69 @@
+#!/usr/bin/env node
+
+const { program } = require('commander');
+const path = require('path')
+const { execSync } = require('child_process')
+
+const copydir = (from, to, dry_run) => {
+  if (dry_run) {
+    console.group('Dry Run Command')
+    return console.log(`mkdir -p ${to} && cp -R ${from}/* ${to}/`)
+  }
+
+  return (execSync(`mkdir -p ${to}`), execSync(`cp -R ${from}/* ${to}/`))
+}
+
+program
+  .option(
+    '-t, --template-path',
+    'template path to look for router templates. Defaults to `$CWD/templates/routes`'
+  )
+  .option(
+    '-v, --version',
+    'the verison to put this route under. Defaults to `1`'
+  )
+  .option(
+    '-r, --routes-path',
+    'path to where you want the put the new route. Defaults to `$CWD/routes`'
+  )
+  .option(
+    '-m, --method <method>',
+    'method to set the route handler for. Defaults to `get`'
+  )
+  .option(
+    '-d, --dry-run',
+    'sets if we are just going to show what we would have done instead of actually doing it'
+  )
+  .arguments('<path-like-string>')
+  .addHelpText(
+    'after',
+    `
+
+Note:
+  When we say "path-like-string", we mean anything that can understood
+  by the routing system and any file-system needs.
+  
+  Example:
+    foo/bar
+    foo/bar/baz/:borp`)
+
+
+program.parse(process.argv)
+
+const {
+  method = 'get',
+  templatePath = process.cwd() + '/templates/routes',
+  routesPath = process.cwd() + '/routes',
+  version = 1,
+  dryRun
+} = program.opts()
+
+const [path_like_string] = program.args
+const full_final_folder_path = path.resolve(routesPath, `v${version}`, path_like_string, method)
+const template_folder_path = path.resolve(templatePath, method)
+
+if (!path_like_string) {
+  throw new TypeError(`You must give a path to set this route to.`)
+}
+
+copydir(template_folder_path, full_final_folder_path, dryRun)

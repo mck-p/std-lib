@@ -1,0 +1,18 @@
+{
+  "name": "@mck-p/std-lib",
+  "version": "0.0.1",
+  "description": "McKendrie-Phillips Standard Server Component Library",
+  "main": "index.js",
+  "author": "Tim Roberts <tim@mck-p.com>",
+  "license": "MIT",
+  "private": false,
+  "bin": {
+    "@mck-p/create-project": "bin/create-project",
+    "create-project": "bin/create-project"
+  },
+  "dependencies": {
+    "bull-board": "^1.2.0",
+    "commander": "^7.0.0",
+    "koa-pino-logger": "^3.0.0"
+  }
+}

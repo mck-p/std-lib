@@ -1,0 +1,128 @@
+_type: export
+__export_format: 4
+__export_date: 2021-01-23T19:46:41.667Z
+__export_source: insomnia.desktop.app:v2020.5.2
+resources:
+  - _id: req_4f3954722d0444a8844ed7c6332aa711
+    parentId: fld_77a51ef861a24505ab0d70aa6fd24f77
+    modified: 1611431105002
+    created: 1611431044176
+    url: "{{ _.notes }}/"
+    name: Create Note
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "foobar@gmail.com"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_66461edfd7084d719f7b96ebab18c948
+    authentication: {}
+    metaSortKey: -1611431044176
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_77a51ef861a24505ab0d70aa6fd24f77
+    parentId: fld_db1222ec306e4b5bb1450a635184ced8
+    modified: 1611431028163
+    created: 1611431028163
+    name: Notes
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1611431028164
+    _type: request_group
+  - _id: fld_db1222ec306e4b5bb1450a635184ced8
+    parentId: wrk_53cec688a27c4f378918909cf385df18
+    modified: 1611427535886
+    created: 1611427535886
+    name: Version 1
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1611427535886
+    _type: request_group
+  - _id: wrk_53cec688a27c4f378918909cf385df18
+    parentId: null
+    modified: 1611427529772
+    created: 1611427529772
+    name: STD Lib
+    description: ""
+    scope: null
+    _type: workspace
+  - _id: req_34e223cbc75e41528161c19b262d4f83
+    parentId: fld_6423c1c42f974871aaa3e8d1bd5a0259
+    modified: 1611430319587
+    created: 1611427549144
+    url: "{{ _.interanl }}/healthcheck"
+    name: Healthcheck
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1611427549144
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_6423c1c42f974871aaa3e8d1bd5a0259
+    parentId: fld_db1222ec306e4b5bb1450a635184ced8
+    modified: 1611427545840
+    created: 1611427545840
+    name: Internal
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1611427545840
+    _type: request_group
+  - _id: env_9b9b2a6614606e26236a2c762dee16c7ad6569a6
+    parentId: wrk_53cec688a27c4f378918909cf385df18
+    modified: 1611431038244
+    created: 1611427529922
+    name: Base Environment
+    data:
+      root: http://localhost:8080
+      v1: "{{ _.root }}/v1"
+      interanl: "{{ _.v1 }}/internal"
+      notes: "{{ _.v1 }}/notes"
+    dataPropertyOrder:
+      "&":
+        - root
+        - v1
+        - interanl
+        - notes
+    color: null
+    isPrivate: false
+    metaSortKey: 1611427529922
+    _type: environment
+  - _id: jar_9b9b2a6614606e26236a2c762dee16c7ad6569a6
+    parentId: wrk_53cec688a27c4f378918909cf385df18
+    modified: 1611427529924
+    created: 1611427529924
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_ad8c6da51a7d4efcbcfdb5a0049c8768
+    parentId: wrk_53cec688a27c4f378918909cf385df18
+    modified: 1611427529777
+    created: 1611427529777
+    fileName: STD Lib
+    contents: ""
+    contentType: yaml
+    _type: api_spec
